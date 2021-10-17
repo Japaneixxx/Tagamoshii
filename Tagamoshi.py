@@ -25,6 +25,34 @@ playerName = input("Whats your name " + playerName + " ? ")
 name = input("Whats the pet name " + playerName + " ? ")
 race = input("Whats " + name + " race? (Cat, Dog, Fox or Mice?)")
 
+
+def printRace():
+    # prints the race selected before
+    if(race.lower() == dog.lower()):
+        print(" |\---/| ")
+        print(" | o_o | ")
+        print("  \_^_/ ")
+    elif(race.lower() == cat.lower()):
+        print("  /\_/\ ")
+        print(" ( o.o ) ")
+        print("  > ^ < ")
+    elif(race.lower() == fox.lower()):
+        print("  ^...^ ")
+        print(" <_o o_> ")
+        print("   \_/  ")
+    elif(race.lower() == mice.lower()):
+        print(" () - () ")
+        print("  \o o/  ")
+        print("    ~   ")
+
+
+def printBasics():
+    print("Your pet "+name+" has: ")
+    print(str(hunger)+" points of hunger")
+    print(str(stamina)+" points of stamina")
+    print(str(happyness)+" points of happyness")
+
+
 while(state != "dead"):
 
     print("Today is day "+str(day))
@@ -51,27 +79,9 @@ while(state != "dead"):
         state + "dead"
         cause = "ran out of stamina"
 
-    if(race.lower() == dog.lower()):
-        print(" |\---/| ")
-        print(" | o_o | ")
-        print("  \_^_/ ")
-    elif(race.lower() == cat.lower()):
-        print("  /\_/\ ")
-        print(" ( o.o ) ")
-        print("  > ^ < ")
-    elif(race.lower() == fox.lower()):
-        print("  ^...^ ")
-        print(" <_o o_> ")
-        print("   \_/  ")
-    elif(race.lower() == mice.lower()):
-        print(" () - () ")
-        print("  \o o/  ")
-        print("    ~   ")
+    printRace()
 
-    print("Your pet "+name+" has: ")
-    print(str(hunger)+" points of hunger")
-    print(str(stamina)+" points of stamina")
-    print(str(happyness)+" points of happyness")
+    printBasics()
 
     # print(activity)
     activity = input("What you what to do now? (Feed, Play, Sleep) ")
@@ -90,7 +100,7 @@ while(state != "dead"):
             happyness == 100
 
     elif(activity.lower() == sleep.lower()):
-        stamina += 1000
+        stamina += 10
         if(stamina >= 110):
             stamina == 100
 
@@ -99,5 +109,5 @@ while(state != "dead"):
 
     if (state == "dead"):
         print("Your pet died because it " + cause + "...")
-        print("and you survived " + str(day) + " days")
+        print("and your pet survived " + str(day) + " days")
         break
